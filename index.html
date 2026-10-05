@@ -3,11 +3,12 @@
 <div class="top"><div class="brand">Checkam9ja</div><div class="pill">🇳🇬 FOR NIGERIA</div></div>
 <section class="hero"><div class="eyebrow">PRODUCT VERIFICATION</div><h1>Before you buy it,<br>check it.</h1><p class="muted">Enter the NAFDAC registration number printed on a product. Checkam9ja helps you compare it with official NAFDAC information.</p></section>
 <div class="card scan"><div class="scanicon">▣</div><h3>Scan a product</h3><p class="muted">Camera scanning is the next prototype step.</p><button class="btn secondary" onclick="alert('Camera scanning is coming next. For this live test, enter the NAFDAC number below.')">Open scanner</button></div>
-<div class="card"><div class="label">NAFDAC registration number</div><input id="nrn" placeholder="e.g. A11-100972" autocomplete="off"><button class="btn primary" onclick="check()">Check it</button></div>
+<div class="card"><div class="label">NAFDAC registration number</div><input id="nrn" placeholder="e.g. A11100972" autocomplete="off" inputmode="text" oninput="formatNRN(this)"><button class="btn primary" onclick="check()">Check it</button></div>
 <div id="result" class="card status"><span class="badge" id="badge"></span><h2 id="headline"></h2><p class="muted" id="desc"></p><div id="details"></div><div class="links"><a href="https://greenbook.nafdac.gov.ng/" target="_blank">Open NAFDAC Greenbook</a><a href="https://services.nafdac.gov.ng/" target="_blank">NAFDAC Verify</a></div></div>
 <div class="card"><b>How Checkam9ja thinks</b><p class="muted">A registration number alone cannot prove the physical item is genuine. A copied genuine number can appear on a counterfeit package. Checkam9ja is designed to compare the registration record with the product name, applicant/manufacturer and other package details.</p></div>
 <p class="notice">Prototype • Not affiliated with or endorsed by NAFDAC. A “verified record” means registration details were found/matched; it is not a guarantee that the physical item is genuine.</p>
 </main><script>
+function formatNRN(el){let s=el.value.toUpperCase().replace(/[^A-Z0-9]/g,"");let m=s.match(/^([A-Z]+[0-9]+)([0-9]{6})$/);if(m)el.value=m[1]+"-"+m[2];else el.value=s}
 const demos={
 "A11-100972":{name:"Jehyson Vitamin C 100 mg Syrup",applicant:"Jehyson Healthcare Ltd.",category:"Herbals / Nutraceuticals",status:"Active"},
 "03-1450":{name:"DR BROWN'S Adult Diaper (Large)",applicant:"Wemy Industries Limited",category:"Medical devices",status:"Active"}
